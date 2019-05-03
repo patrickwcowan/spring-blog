@@ -24,6 +24,9 @@ public class HomeController {
     public String welcomeDie(@PathVariable int n, Model model) {
         int random = (int)(Math.random() * 6 + 1);
         int counter = 0;
+
+
+
         model.addAttribute("n",n);
         model.addAttribute("random", random);
 
