@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dice Random</title>
+    <link rel="stylesheet" href="/css/cssDie.css"/>
+</head>
+<body>
+
+<h1>Random Number Game!</h1>
+
+<h3>Choose a number:</h3>
+<a href="/roll-dice/1"><img class="dieChoice" th:src="@{${'/img/die1.png'}}"/></a>
+<a href="/roll-dice/2"><img class="dieChoice" th:src="@{${'/img/die2.png'}}"/></a>
+<a href="/roll-dice/3"><img class="dieChoice" th:src="@{${'/img/die3.png'}}"/></a>
+<a href="/roll-dice/4"><img class="dieChoice" th:src="@{${'/img/die4.png'}}"/></a>
+<a href="/roll-dice/5"><img class="dieChoice" th:src="@{${'/img/die5.png'}}"/></a>
+<a href="/roll-dice/6"><img class="dieChoice" th:src="@{${'/img/die6.png'}}"/></a>
+
+
+<!--<img class="dieChoice" th:src="@{${'/img/die1.png'}}"/>-->
+
+
+<h1>You Choose: <span th:text="${n}"></span></h1>
+
+<h1>Random Number: <span th:text="${random}"></span> </h1>
+
+<div th:if="${winner}">
+<h1>Right Guesses: <span th:text="${counter+1}"></span></h1>
+</div>
+
+<div th:if="${winner}">
+    <h1>YOU GUESSED RIGHT!!!!!!</h1>
+</div>
+
+<div th:if="${loser}">
+    <h1>YOU GUESSED wrong!!!!!!</h1>
+</div>
+
+
+
+
+</body>
+</html>
