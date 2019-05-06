@@ -9,27 +9,50 @@
 <body>
 <div th:replace="partials/navbar :: mynav"></div>
 
-<h1>Random Number Game!</h1>
-
-<h3>Choose a number:</h3>
-<a href="/roll-dice/1"><img class="dieChoice" th:src="@{${'/img/die1.png'}}"/></a>
-<a href="/roll-dice/2"><img class="dieChoice" th:src="@{${'/img/die2.png'}}"/></a>
-<a href="/roll-dice/3"><img class="dieChoice" th:src="@{${'/img/die3.png'}}"/></a>
-<a href="/roll-dice/4"><img class="dieChoice" th:src="@{${'/img/die4.png'}}"/></a>
-<a href="/roll-dice/5"><img class="dieChoice" th:src="@{${'/img/die5.png'}}"/></a>
-<a href="/roll-dice/6"><img class="dieChoice" th:src="@{${'/img/die6.png'}}"/></a>
-
-
-<!--<img class="dieChoice" th:src="@{${'/img/die1.png'}}"/>-->
-
-
-<h1>You Choose: <span th:text="${n}"></span></h1>
-
-<h1>Random Number: <span th:text="${random}"></span> </h1>
-
-<div th:if="${winner}">
-<h1>Right Guesses: <span th:text="${counter+1}"></span></h1>
+<div class="container">
+    <div class="page-header">
+        <h1 style="text-align: center">Random Dice Game!</h1>
+    </div>
+    <!--<p>This is some text.</p>-->
+    <!--<p>This is another text.</p>-->
 </div>
+<div>
+<div class="dieSelection"></div>
+<div id="bigDie">
+    <img class="dieChoice2" th:src="@{${randomPic}}"/>
+</div>
+<div class="dieSelection"></div>
+</div>
+
+<br/>
+
+<form action="#" th:action="@{/fooform}" th:object="${command}" method="post">
+
+    <p>Simple Text Field: <input type="text" th:field="*{textField}" /></p>
+
+
+</form>
+
+
+<h3 style="text-align: center">Choose a number:</h3>
+<div class="dieSelection">
+<a href="/roll-dice/0"><img class="dieChoice" th:src="@{${'/img/die1.png'}}"/><input type="submit" value="Submit" /><</a>
+<a href="/roll-dice/1"><img class="dieChoice" th:src="@{${'/img/die2.png'}}"/><input type="submit" value="Submit" /><</a>
+<a href="/roll-dice/2"><img class="dieChoice" th:src="@{${'/img/die3.png'}}"/><input type="submit" value="Submit" /><</a>
+<a href="/roll-dice/3"><img class="dieChoice" th:src="@{${'/img/die4.png'}}"/><input type="submit" value="Submit" /><</a>
+<a href="/roll-dice/4"><img class="dieChoice" th:src="@{${'/img/die5.png'}}"/><input type="submit" value="Submit" /><</a>
+<a href="/roll-dice/5"><img class="dieChoice" th:src="@{${'/img/die6.png'}}"/><input type="submit" value="Submit" /><</a>
+</div>
+
+</form>
+
+
+
+
+<h1>You Choose: <span th:text="${n+1}"></span></h1>
+
+<h1>Random Number: <span th:text="${randomizer+1}"></span> </h1>
+<h1>Score: <span th:text="${counter}"></span></h1>
 
 <div th:if="${winner}">
     <h1>YOU GUESSED RIGHT!!!!!!</h1>

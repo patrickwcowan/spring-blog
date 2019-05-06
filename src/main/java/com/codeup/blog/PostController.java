@@ -11,6 +11,11 @@ import java.util.ArrayList;
 
 @Controller
 public class PostController {
+//    private final EmailService emailService;
+//
+//    public PostController(EmailService emailService) {
+//        this.emailService = emailService;
+//    }
 
     @GetMapping("/posts")
     public String showPosts(Model model) {
