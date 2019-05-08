@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Posts</title>
+</head>
+<body>
+
+<h1>These are you properties!</h1>
+
+<div th:each="property : ${properties}">
+    <h2 th:text="${property.getStreetAddress()}"></h2>
+    <h4 th:text="${property.getBedrooms()}"></h4>
+    <h4 th:text="${property.getBathrooms()}"></h4>
+    <h4 th:text="${property.getLotSize()}"></h4>
+    <h4 th:text="${property.getPrice()}"></h4>
+</div>
+
+</body>
+</html>

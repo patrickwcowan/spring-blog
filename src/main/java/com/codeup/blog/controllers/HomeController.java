@@ -1,4 +1,4 @@
-package com.codeup.blog;
+package com.codeup.blog.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +13,11 @@ public class HomeController {
 
     public int Counter;
 
-    @GetMapping("/")
-    @ResponseBody
-    public String hello() {
-        return "This is your landing page!";
-    }
+//    @GetMapping("/")
+//    @ResponseBody
+//    public String hello() {
+//        return "This is your landing page!";
+//    }
 
     @GetMapping("/roll-dice")
     public String welcome(HttpSession session) {
