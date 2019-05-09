@@ -1,10 +1,12 @@
 package com.codeup.blog.controllers;
 
 import com.codeup.blog.models.Post;
-import com.codeup.blog.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PostController {
@@ -51,8 +53,7 @@ public class PostController {
 
     @PostMapping("posts/edit/{id}")
     public String editPost(@ModelAttribute Post post,@PathVariable long id) {
-        User user = userDao.findById(id);
-        post.setUsers(user);
+        post.setUsers(userDao.findById(1));
         postDao.save(post);
         return "redirect:/posts";
     }
@@ -65,11 +66,10 @@ public class PostController {
     }
 
 
-    ///Creating a POST, this is then redirected to post/index to show all posts after it has bas been created
+
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post) {
-        User user = userDao.findById(1);
-        post.setUsers(user);
+        post.setUsers(userDao.findById(1));
         postDao.save(post);
         return "redirect:/posts";
     }

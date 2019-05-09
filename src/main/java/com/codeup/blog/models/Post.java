@@ -56,4 +56,10 @@ public class Post {
     public void setUsers(User users) {
         this.users = users;
     }
+
+//    public Post(String title, String body) {
+//        this.title = title;
+//        this.body = body;
+//        this.users = getUsers();
+//    }
 }

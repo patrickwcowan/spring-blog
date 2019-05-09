@@ -31,13 +31,15 @@
 //
 // console.log(simpleArraySum(input));
 
-function solution(str, ending) {
-    var first = "";
-    var second = "";
-    for (var i = 1; i < ending.length;i--){
-        first+=str[i];
-    }
-    console.log(first);
-}
+// function solution(str, ending) {
+//     var first = "";
+//     var second = "";
+//     for (var i = 1; i < ending.length;i--){
+//         first+=str[i];
+//     }
+//     console.log(first);
+// }
+//
+// console.log(solution('abc', 'bv'));
 
-console.log(solution('abc', 'bv'));
+console.log("hi");
