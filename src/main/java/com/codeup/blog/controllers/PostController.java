@@ -1,6 +1,10 @@
 package com.codeup.blog.controllers;
 
 import com.codeup.blog.models.Post;
+import com.codeup.blog.models.User;
+import com.codeup.blog.repositories.PostRepository;
+import com.codeup.blog.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,8 +37,8 @@ public class PostController {
 
     @GetMapping("/posts/{id}")
     public String showPost(@PathVariable long id, Model model) {
-
         model.addAttribute("posts",postDao.findById(id));
+
         return "posts/show";
     }
 
@@ -53,7 +57,9 @@ public class PostController {
 
     @PostMapping("posts/edit/{id}")
     public String editPost(@ModelAttribute Post post,@PathVariable long id) {
-        post.setUsers(userDao.findById(1));
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        post.setUsers(userDB);
         postDao.save(post);
         return "redirect:/posts";
     }
@@ -69,7 +75,9 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post) {
-        post.setUsers(userDao.findById(1));
+        User sessionUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User userDB = userDao.findOne(sessionUser.getId());
+        post.setUsers(userDB);
         postDao.save(post);
         return "redirect:/posts";
     }
